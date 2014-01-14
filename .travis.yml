@@ -5,6 +5,8 @@ php:
 before_script:
   - composer self-update
   - pear config-set preferred_state beta
+  - printf "\n" | pecl install imagick
+  - echo "extension=imagick.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - pear config-set preferred_state stable
   - pear install pear/PHP_CodeSniffer
   - pear channel-discover components.ez.no
@@ -17,9 +19,11 @@ before_script:
   - pear channel-discover pear.pdepend.org
   - pear install --alldeps phpmd/PHP_PMD
   - phpenv rehash
+  - chmod +x .travis.setup.sh
   - ./.travis.setup.sh
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
+  - chmod +x .travis.tests.sh
 
 env:
  - OMEKA_BRANCH=master
