@@ -30,7 +30,6 @@ env:
 
 script:
   - ./.travis.tests.sh
-  - phpunit -c application/tests/phpunit.xml
   - phpmd . text codesize,unusedcode,naming,design --ignore=application/libraries/,application/archive/
   - phpcpd .
   - phpdcd .
