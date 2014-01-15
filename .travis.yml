@@ -30,7 +30,7 @@ env:
 
 script:
   - ./.travis.tests.sh
-  - phpcpd .
-  - phpdcd .
-  - phpcs --standard=PSR2 --extensions=php .
-  - phpmd . text codesize,unusedcode,naming,design
+  - phpcpd . --exclude=omeka
+  - phpdcd . --exclude=omeka
+  - phpcs --standard=PSR2 --extensions=php .  --ignore=omeka
+  - phpmd . text codesize,unusedcode,naming,design --ignore=omeka
