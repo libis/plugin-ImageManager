@@ -30,7 +30,7 @@ env:
 
 script:
   - ./.travis.tests.sh
-  - phpmd . text codesize,unusedcode,naming,design
   - phpcpd .
   - phpdcd .
   - phpcs --standard=PSR2 --extensions=php .
+  - phpmd . text codesize,unusedcode,naming,design
